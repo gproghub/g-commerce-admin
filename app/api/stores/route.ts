@@ -5,26 +5,28 @@ import prismadb from '@/lib/prismadb';
 
 export const POST = async (req: Request) => {
   try {
+    // Check user exists
     const { userId } = auth();
-    const body = await req.json();
-    const { name } = body;
-
     if (!userId) {
-      return new NextResponse('Unauthorized', { status: 401 });
+      return new NextResponse('Unauthenticated', { status: 401 });
     }
 
+    // Check body params exist
+    const body = await req.json();
+    const { name } = body;
     if (!name) {
       return new NextResponse('Name is required', { status: 400 });
     }
 
-    const store = await prismadb.store.create({
+    //Create store
+    const newStore = await prismadb.store.create({
       data: {
         name,
         userId,
       },
     });
 
-    return NextResponse.json(store);
+    return NextResponse.json(newStore);
   } catch (error) {
     console.log('[STORES_POST]', error);
     return new NextResponse('Internal error', { status: 500 });

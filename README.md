@@ -5,6 +5,7 @@
 1. App --> NextJS 13 App Router
    1. Form handling --> shadcn/ui(react-hook-form and zod)
    2. API calls --> axios
+   3. Imgage upload --> Cloudinary and next-cloudinary
 2. Authentication --> Clerk
 3. Style --> Tailwind
 4. Database --> PlanetScale (MySQL)
