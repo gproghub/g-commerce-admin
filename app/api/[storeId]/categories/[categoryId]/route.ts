@@ -3,10 +3,7 @@ import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 
 /* GET CATEGORY*/
-export const GET = async (
-  req: Request,
-  { params }: { params: { categoryId: string } }
-) => {
+export const GET = async (req: Request, { params }: { params: { categoryId: string } }) => {
   try {
     // Check params exist
     if (!params.categoryId) {
@@ -18,6 +15,9 @@ export const GET = async (
       where: {
         id: params.categoryId,
       },
+      include: {
+        billboard: true,
+      },
     });
 
     return NextResponse.json(category);
@@ -28,10 +28,7 @@ export const GET = async (
 };
 
 /* UPDATE CATEGORY*/
-export const PATCH = async (
-  req: Request,
-  { params }: { params: { storeId: string; categoryId: string } }
-) => {
+export const PATCH = async (req: Request, { params }: { params: { storeId: string; categoryId: string } }) => {
   try {
     // Check params exist
     if (!params.storeId) {
@@ -91,10 +88,7 @@ export const PATCH = async (
 };
 
 /* DELETE CATEGORY*/
-export const DELETE = async (
-  req: Request,
-  { params }: { params: { storeId: string; categoryId: string } }
-) => {
+export const DELETE = async (req: Request, { params }: { params: { storeId: string; categoryId: string } }) => {
   try {
     // Check params exist
     if (!params.storeId) {

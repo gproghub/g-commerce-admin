@@ -32,7 +32,7 @@ const formSchema = z.object({
   isArchived: z.boolean().default(false).optional(),
 });
 
-type ProductFormValues = z.infer<typeof formSchema>;
+type ProductFormValues = z.infer<typeof formSchema>; // We reuse zod's schema to create the type
 
 interface ProductFormProps {
   initialData:
