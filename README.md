@@ -1,26 +1,33 @@
-## Tecnologías
+## G-eCOMMERCE-ADMIN
 
-### Admin
+### Descripción
 
-1. App --> NextJS 13 App Router
-   1. Form handling --> shadcn/ui(react-hook-form and zod)
-   2. API calls --> axios
-   3. Imgage upload --> Cloudinary and next-cloudinary
-2. Authentication --> Clerk
-3. Style --> shadcn/ui and RadixUI
-4. Database --> PlanetScale (MySQL)
+Esta aplicación te permite gestionar las categorías, colores, tamaños, cabeceras y productos de varias tiendas en un solo panel de control.
+
+### Como se usa
+
+1. Inicia sesión con tu correo electrónico o con tus RR.SS.
+2. Crea una tienda en la esquina superior izquierda.
+3. Crea uno o varias cabeceras en 'Billboards'.
+4. Crea una o varias categorías para los productos de tu tienda en 'Categories'.
+5. Crea uno o varios tamaños para los productos de tu tienda en 'Sizes'.
+6. Crea uno o varios colores para los productos de tu tienda en 'Colors'.
+7. Crea uno o varios productos añadiendo las categorías, tamaños, y colores que has definido anteriormente en 'Products'.
+8. Lleva el seguimiento de los pedidos en 'Orders'.
+
+### Tecnologías
+
+1. App --> NextJS 13 con App Router
+   1. Formularios --> react-hook-form and zod
+   2. Llamadas API --> axios
+   3. Subida de imágenes --> Cloudinary y next-cloudinary
+2. Autenticación --> Clerk
+3. Estilos y Diseño --> shadcn/ui y tailwindcss
+4. BB.DD. --> PlanetScale (MySQL)
    1. ORM --> Prisma
-5. Global state management --> zustand
+5. Gestor de estado global --> zustand
 
-### Store
-
-1. App --> NextJS 13 App Router
-2. Authentication --> Clerk
-3. Style --> Headless ui and tailwind
-4. Database --> PlanetScale (MySQL)
-   1. ORM --> Prisma
-
-## Pasos Stripe para DEV
+### Pasos Stripe para DEV
 
 1. Instalar paquete de Stripe ejecutando:
 
@@ -62,7 +69,7 @@ npm install stripe
 stripe trigger payment_intetn.succeeded
 ```
 
-## Pasos Stripe para PROD
+### Pasos Stripe para PROD
 
 1. En Developers/Webhooks dentro de Stripe, añade un endpoint y:
 
