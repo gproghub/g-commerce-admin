@@ -20,7 +20,7 @@
 4. Database --> PlanetScale (MySQL)
    1. ORM --> Prisma
 
-## Stripe steps
+## Pasos Stripe para DEV
 
 1. Instalar paquete de Stripe ejecutando:
 
@@ -61,3 +61,13 @@ npm install stripe
 ```
 stripe trigger payment_intetn.succeeded
 ```
+
+## Pasos Stripe para PROD
+
+1. En Developers/Webhooks dentro de Stripe, añade un endpoint y:
+
+   1. Mete la URL de producción de g-commerce-admin en 'Endpoint URL' y añade '/api/webhook'
+   2. Selecciona el evento 'checkout.session.completed'
+
+2. Selecciona el webhook creado, copia el 'Signing secret' y pégalo en la variable de entorno 'STRIPE_WEBHOOK_SECRET'
+3. Para que se puedan aceptar pagos con tarjetas de verdad hay que quitar el modo test de Stripe y registrarse.
